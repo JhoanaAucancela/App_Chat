@@ -5,36 +5,27 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
 
-  <form [formGroup]="credentialForm">
+  <form >
     <ion-item>
-      <ion-input
-        placeholder="Email address"
-        formControlName="email"
-        autofocus="true"
-        clearInput="true"
-      ></ion-input>
+      <ion-input placeholder="Email address" formControlName="email" autofocus="true" clearInput="true"></ion-input>
     </ion-item>
-    <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
-      <span *ngIf="email.errors?.required">Email is required</span>
-      <span *ngIf="email.errors?.email">Email is invalid</span>
+    <div class="errors">
+      <span >Email is required</span>
+      <span >Email is invalid</span>
     </div>
 
     <ion-item>
-      <ion-input
-      placeholder="Password"
-      type="password"
-      formControlName="password"
-      clearInput="true"
-    ></ion-input>
+      <ion-input placeholder="Password" type="password" formControlName="password" clearInput="true" ></ion-input>
     </ion-item>
-    <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
-      <span *ngIf="password.errors?.required">Password is required</span>
-      <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+    <div >
+      <span >Password is required</span>
+      <span >Password needs to be 6 characters</span>
     </div>
   </form>
 
-    <ion-button (click)="signUp()" expand="full">Sing up</ion-button>
-    <ion-button (click)="signIn()" expand="full" color="secondary">Sing in</ion-button>
 
+  <ion-button (click)="signUp()" expand="full">Sing up</ion-button>
+  <ion-button (click)="signIn()" expand="full" color="secondary">Sing in</ion-button>
 </ion-content>

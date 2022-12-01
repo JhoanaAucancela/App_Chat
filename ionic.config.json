@@ -1,7 +1,6 @@
 {
-  "name": "chat",
+  "name": "app-chat",
   "integrations": {
-    "cordova": {},
     "capacitor": {}
   },
   "type": "angular"

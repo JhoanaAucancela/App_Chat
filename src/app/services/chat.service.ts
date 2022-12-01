@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+
+
+
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import firebase from 'firebase/compat/app';
 import { switchMap, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import 'firebase/firestore';
 
 export interface User {
   uid: string;
@@ -23,7 +25,6 @@ export interface Message {
 @Injectable({
   providedIn: 'root'
 })
-
 export class ChatService {
   //currentUser: User = null;
   User = firebase.auth().currentUser;

@@ -11,7 +11,6 @@ import { ChatService } from '../../services/chat.service';
 })
 export class LoginPage implements OnInit {
   credentialForm!: FormGroup;
-
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -27,17 +26,19 @@ export class LoginPage implements OnInit {
     });
   }
 
-  async signUp() {
+  
+
+  async signUp(){
     const loading = await this.loadingController.create();
     await loading.present();
     this.chatService
       .signup(this.credentialForm.value)
       .then(
-        (user) => {
+        (user: any) => {
           loading.dismiss();
           this.router.navigateByUrl('/chat', { replaceUrl: true });
         },
-        async (err) => {
+        async (err: { message: any; }) => {
           loading.dismiss();
           const alert = await this.alertController.create({
             header: 'Sign up failed',
@@ -49,7 +50,6 @@ export class LoginPage implements OnInit {
         }
       );
   }
-
   async signIn() {
     const loading = await this.loadingController.create();
     await loading.present();
@@ -57,11 +57,11 @@ export class LoginPage implements OnInit {
     this.chatService
       .signIn(this.credentialForm.value)
       .then(
-        (res) => {
+        (res: any) => {
           loading.dismiss();
           this.router.navigateByUrl('/chat', { replaceUrl: true });
         },
-        async (err) => {
+        async (err: { message: any; }) => {
           loading.dismiss();
           const alert = await this.alertController.create({
             header: ':(',
@@ -74,7 +74,6 @@ export class LoginPage implements OnInit {
       );
   }
 
-  // Easy access for form fields
   get email() {
     return this.credentialForm.get('email');
   }

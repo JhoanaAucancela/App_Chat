@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./chat.page.scss'],
 })
 export class ChatPage implements OnInit {
-  @ViewChild(IonContent) content!: IonContent;
+
+  @ViewChild(IonContent)
+  content!: IonContent;
 
   messages!: Observable<any[]>;
   newMsg = '';
@@ -33,5 +35,4 @@ export class ChatPage implements OnInit {
       this.router.navigateByUrl('/', { replaceUrl: true });
     });
   }
-
 }
